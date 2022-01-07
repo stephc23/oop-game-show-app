@@ -46,14 +46,14 @@ class Game {
         if (isInPhrase) {
             keyButton.classList.add('chosen');
             this.activePhrase.showMatchedLetter(selectedLetter);
+
+            const hasWon = this.checkForWin();
+            if (hasWon) {
+                this.gameOver();
+            }
         } else {
             keyButton.classList.add('wrong');
             this.removeLife();
-        }
-
-        const hasWon = this.checkForWin();
-        if (hasWon) {
-            this.gameOver();
-        }
+        }    
     }
 }
