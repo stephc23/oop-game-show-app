@@ -17,9 +17,9 @@ class Phrase {
             phraseDiv.firstElementChild.appendChild(characterLi);
 
             if (char = ' ') {
-                characterLi.setAttribute('class', 'space');
+                characterLi.classList.add('space');
             } else {
-                characterLi.setAttribute('class', `hide letter ${char}`);
+                characterLi.classList.add('hide', 'letter', `${char}`);
             }
         } 
     }

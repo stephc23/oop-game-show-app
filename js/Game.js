@@ -56,4 +56,25 @@ class Game {
             this.removeLife();
         }    
     }
+
+    /**
+     * Removes a life from the scoreboard. Ends game if no lives remain.
+     */
+    removeLife() {
+        const scoreboardDiv = document.querySelector('#scoreboard');
+        const heartLis = scoreboardDiv.firstElementChild.children;
+
+        for (const li of heartLis) {
+            const img = li.firstElementChild;
+            if (img.src === 'images/liveHeart.png') {
+                img.setAttribute('src', 'images/lostHeart.png');
+                break;
+            }
+        }
+
+        this.missed += 1;
+        if (this.missed === 5) {
+            this.gameOver();
+        }
+    }
 }
