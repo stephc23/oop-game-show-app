@@ -26,12 +26,12 @@ class Phrase {
 
     /**
      * Checks if the letter selected by the player matches a letter in the phrase.
-     * @param {string} selected - The letter selected by the player.
+     * @param {string} selectedLetter - The letter selected by the player.
      * @returns {boolean} True if the selected letter matches a letter in the phrase; false if it matches no letters.
      */
-    checkLetter(selected) {
+    checkLetter(selectedLetter) {
         for (const char of this.phrase) {
-            if (char === selected) {
+            if (char === selectedLetter) {
                 return true;
             } 
         }
@@ -40,12 +40,12 @@ class Phrase {
 
     /**
      * Shows letters on the board that matches the player's selected letter.
-     * @param {string} matched - The players selected letter that matches at least one letter in the phrase.
+     * @param {string} matchedLetter - The players selected letter, which matches at least one letter in the phrase.
      */    
-    showMatchedLetter(matched) {
+    showMatchedLetter(matchedLetter) {
         const letterLis = document.querySelector('#phrase').firstElementChild.children;
         for (const li of letterLis) {
-            if (li.classList.contains(matched)) {
+            if (li.classList.contains(matchedLetter)) {
                 li.classList.replace('hide', 'show');
             }
         }
