@@ -77,4 +77,25 @@ class Game {
             this.gameOver();
         }
     }
+
+    /**
+     * Checks if all of the letters in the active phrase have been revealed.
+     * @returns {boolean} True if all letters have been revealed, and false if not.
+     */    
+    checkForWin() {
+        const phraseDiv = document.querySelector('#phrase');
+        const characterLis = phraseDiv.firstElementChild.children;
+        let numLettersShown = 0;
+
+        for (const li of characterLis) {
+            if (li.classList.contains('letter')) {
+                if (li.classList.contains('show')) {
+                    numLettersShown += 1;
+                }
+            }
+        }
+        
+        const phraseNoSpaces = this.activePhrase.phrase.replaceAll(' ', '');
+        return numLettersShown === phraseNoSpaces.length; 
+    }
 }
