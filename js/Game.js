@@ -34,7 +34,7 @@ class Game {
     }
 
     /**
-     * Branches code, depending on if selected letter is in the phrase. Checks if game has been won.
+     * Branches code, depending on if selected letter is in the phrase.
      * @param {object} event - Click event object.
      */
     handleInteraction(event) {
@@ -61,6 +61,27 @@ class Game {
     }
 
     /**
+     * Checks if all of the letters in the active phrase have been revealed.
+     * @returns {boolean} True if all letters have been revealed, and false if not.
+     */    
+     checkForWin() {
+        const phraseDiv = document.querySelector('#phrase');
+        const characterLis = phraseDiv.firstElementChild.children;
+        let numLettersShown = 0;
+
+        for (const li of characterLis) {
+            if (li.classList.contains('letter')) {
+                if (li.classList.contains('show')) {
+                    numLettersShown += 1;
+                }
+            }
+        }
+        
+        const phraseNoSpaces = this.activePhrase.phrase.replaceAll(' ', '');
+        return numLettersShown === phraseNoSpaces.length; 
+    }
+
+    /**
      * Removes a life from the scoreboard. Ends game if no lives remain.
      */
     removeLife() {
@@ -79,27 +100,6 @@ class Game {
         if (this.missed === 5) {
             this.gameOver('lose');
         }
-    }
-
-    /**
-     * Checks if all of the letters in the active phrase have been revealed.
-     * @returns {boolean} True if all letters have been revealed, and false if not.
-     */    
-    checkForWin() {
-        const phraseDiv = document.querySelector('#phrase');
-        const characterLis = phraseDiv.firstElementChild.children;
-        let numLettersShown = 0;
-
-        for (const li of characterLis) {
-            if (li.classList.contains('letter')) {
-                if (li.classList.contains('show')) {
-                    numLettersShown += 1;
-                }
-            }
-        }
-        
-        const phraseNoSpaces = this.activePhrase.phrase.replaceAll(' ', '');
-        return numLettersShown === phraseNoSpaces.length; 
     }
 
     /**
