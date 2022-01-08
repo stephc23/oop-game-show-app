@@ -122,7 +122,7 @@ class Game {
     }
 
     /**
-     * Enable all keyboard buttons and reset their classnames. 
+     * Enable all keyboard buttons and reset their classnames.
      */
     resetKeyButtons() {
         const keyboardDiv = document.querySelector('#qwerty');
@@ -137,7 +137,20 @@ class Game {
         }
     }
 
-    resetLives() {}
+    /**
+     * Reset all heart images in the scoreboard to the liveheart.png image.
+     */
+    resetLives() {
+        const scoreboardDiv = document.querySelector('#scoreboard');
+        const heartLis = scoreboardDiv.firstElementChild.children;
+
+        for (const li of heartLis) {
+            const img = li.firstElementChild;
+            if (img.src === 'images/lostHeart.png') {
+                img.setAttribute('src', 'images/liveHeart.png');
+            }
+        }
+    }
 
     resetGameboard() {
 
