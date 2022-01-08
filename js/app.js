@@ -7,6 +7,7 @@ const startButton = document.querySelector('#btn__reset');
 
 startButton.addEventListener('click', () => {
     const game = new Game();
+    game.resetGameboard();
     game.startGame();
 });
 

@@ -122,7 +122,7 @@ class Game {
     }
 
     /**
-     * Enable all keyboard buttons and reset their classnames.
+     * Enables all keyboard buttons and resets their classnames.
      */
     resetKeyButtons() {
         const keyboardDiv = document.querySelector('#qwerty');
@@ -138,7 +138,7 @@ class Game {
     }
 
     /**
-     * Reset all heart images in the scoreboard to the liveheart.png image.
+     * Resets all heart images in the scoreboard to the liveheart.png image.
      */
     resetLives() {
         const scoreboardDiv = document.querySelector('#scoreboard');
@@ -152,9 +152,12 @@ class Game {
         }
     }
 
+    /**
+     * Resets the gameboard before a new game.
+     */
     resetGameboard() {
-
+        this.activePhrase.removePhraseFromDisplay();
+        this.resetKeyButtons();
+        this.resetLives();
     }
-
-
 }
