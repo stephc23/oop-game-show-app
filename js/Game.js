@@ -9,8 +9,8 @@ class Game {
             new Phrase('Happy Holidays'),
             new Phrase('Merry Christmas'),
             new Phrase('Happy New Year'),
-            new Phrase('Let it snow'),
-            new Phrase('Jingle bells')
+            new Phrase('Let It Snow'),
+            new Phrase('Jingle Bells')
         ];
         this.activePhrase = null;
     }
@@ -149,7 +149,7 @@ class Game {
         for (const li of heartLis) {
             const img = li.firstElementChild;
             if (img.src === 'file:///Users/stephaniechang/Documents/code/oop-game-show-app/images/lostHeart.png') {
-                img.setAttribute('src', 'images/liveHeart.png');
+                img.src = 'images/liveHeart.png';
             }
         }
     }
