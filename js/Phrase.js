@@ -15,8 +15,9 @@ class Phrase {
             const characterLi = document.createElement('li');
             const phraseDiv = document.querySelector('#phrase');
             phraseDiv.firstElementChild.appendChild(characterLi);
+            characterLi.textContent = char;
 
-            if (char = ' ') {
+            if (char === ' ') {
                 characterLi.classList.add('space');
             } else {
                 characterLi.classList.add('hide', 'letter', `${char}`);

@@ -2,12 +2,11 @@
  * Project 4 - OOP Game App
  * app.js */
 
+const game = new Game();
 const keyboardDiv = document.querySelector('#qwerty');
 const startButton = document.querySelector('#btn__reset');
 
 startButton.addEventListener('click', () => {
-    const game = new Game();
-    game.resetGameboard();
     game.startGame();
 });
 

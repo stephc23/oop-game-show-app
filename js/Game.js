@@ -29,7 +29,7 @@ class Game {
      * @returns {object} The random Phrase object.
      */
     getRandomPhrase() {
-        const randomIndex = Math.ceil(Math.random * 4);
+        const randomIndex = Math.ceil(Math.random() * 4);
         return this.phrases[randomIndex];
     }
 
@@ -69,8 +69,8 @@ class Game {
 
         for (const li of heartLis) {
             const img = li.firstElementChild;
-            if (img.src === 'images/liveHeart.png') {
-                img.setAttribute('src', 'images/lostHeart.png');
+            if (img.src === 'file:///Users/stephaniechang/Documents/code/oop-game-show-app/images/liveHeart.png') {
+                img.src = 'images/lostHeart.png';
                 break;
             }
         }
@@ -119,6 +119,8 @@ class Game {
             messageH1.textContent = 'Sorry. You\'ve run out of guesses.';
             overlayDiv.className = 'lose';
         }
+
+        this.resetGameboard();
     }
 
     /**
@@ -126,10 +128,10 @@ class Game {
      */
     resetKeyButtons() {
         const keyboardDiv = document.querySelector('#qwerty');
-        const keyrowDivs = keyboardDivs.children;
+        const keyrowDivs = keyboardDiv.children;
 
         for (const div of keyrowDivs) {
-            keyButtons = div.children;
+            const keyButtons = div.children;
             for (const keyButton of keyButtons) {
                 keyButton.disabled = false;
                 keyButton.className = 'key';
@@ -146,7 +148,7 @@ class Game {
 
         for (const li of heartLis) {
             const img = li.firstElementChild;
-            if (img.src === 'images/lostHeart.png') {
+            if (img.src === 'file:///Users/stephaniechang/Documents/code/oop-game-show-app/images/lostHeart.png') {
                 img.setAttribute('src', 'images/liveHeart.png');
             }
         }
