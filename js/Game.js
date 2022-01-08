@@ -120,4 +120,8 @@ class Game {
             overlayDiv.className = 'lose';
         }
     }
+
+    resetGameboard() {
+        
+    }
 }

@@ -50,4 +50,12 @@ class Phrase {
             }
         }
     }
+
+    /**
+     * Removes all letter elements from the display.
+     */
+    removePhraseFromDisplay() {
+        const phraseUl = document.querySelector('#phrase').firstElementChild;
+        phraseUl.textContent = '';
+    }
 }
