@@ -121,7 +121,27 @@ class Game {
         }
     }
 
-    resetGameboard() {
-        
+    /**
+     * Enable all keyboard buttons and reset their classnames. 
+     */
+    resetKeyButtons() {
+        const keyboardDiv = document.querySelector('#qwerty');
+        const keyrowDivs = keyboardDivs.children;
+
+        for (const div of keyrowDivs) {
+            keyButtons = div.children;
+            for (const keyButton of keyButtons) {
+                keyButton.disabled = false;
+                keyButton.className = 'key';
+            }
+        }
     }
+
+    resetLives() {}
+
+    resetGameboard() {
+
+    }
+
+
 }
