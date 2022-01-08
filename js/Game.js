@@ -29,7 +29,7 @@ class Game {
      * @returns {object} The random Phrase object.
      */
     getRandomPhrase() {
-        const randomIndex = Math.ceil(Math.random() * 4);
+        const randomIndex = Math.floor(Math.random() * 5);
         return this.phrases[randomIndex];
     }
 
