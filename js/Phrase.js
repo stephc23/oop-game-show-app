@@ -26,7 +26,7 @@ class Phrase {
     }
 
     /**
-     * Checks if the letter selected by the player matches a letter in the phrase.
+     * Checks if the letter selected by the player is in the phrase.
      * @param {string} selectedLetter - The letter selected by the player.
      * @returns {boolean} True if the selected letter matches a letter in the phrase; false if it matches no letters.
      */
