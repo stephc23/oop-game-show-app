@@ -49,7 +49,7 @@ class Game {
 
             const hasWon = this.checkForWin();
             if (hasWon) {
-                this.gameOver();
+                this.gameOver('win');
             }
         } else {
             keyButton.classList.add('wrong');
@@ -74,7 +74,7 @@ class Game {
 
         this.missed += 1;
         if (this.missed === 5) {
-            this.gameOver();
+            this.gameOver('lose');
         }
     }
 
@@ -97,5 +97,24 @@ class Game {
         
         const phraseNoSpaces = this.activePhrase.phrase.replaceAll(' ', '');
         return numLettersShown === phraseNoSpaces.length; 
+    }
+
+    /**
+     * Displays overlay with game over message, depending on outcome.
+     * @param {string} outcome - 'win' or 'lose' 
+     */
+    gameOver(outcome) {
+        const overlayDiv = document.querySelector('#overlay');
+        const messageH1 = overlayDiv.children[1];
+        
+        overlayDiv.style.display = 'block';
+        
+        if (outcome === 'win') {
+            messageH1.textContent = 'Congratulations! You\'ve guessed the phrase!';
+            overlayDiv.className = 'win';
+        } else {
+            messageH1.textContent = 'Sorry. You\'ve run out of guesses.';
+            overlayDiv.className = 'lose';
+        }
     }
 }
