@@ -103,7 +103,7 @@ class Game {
     }
 
     /**
-     * Displays overlay with game over message, depending on outcome.
+     * Displays overlay with game over message and resets gameboard.
      * @param {string} outcome - 'win' or 'lose' 
      */
     gameOver(outcome) {
