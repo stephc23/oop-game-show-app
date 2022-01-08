@@ -38,23 +38,26 @@ class Game {
      * @param {object} event - Click event object.
      */
     handleInteraction(event) {
-        const keyButton = event.target;
-        keyButton.disabled = true;
-
-        const selectedLetter = keyButton.textContent;
-        const isInPhrase = this.activePhrase.checkLetter(selectedLetter);
-        if (isInPhrase) {
-            keyButton.classList.add('chosen');
-            this.activePhrase.showMatchedLetter(selectedLetter);
-
-            const hasWon = this.checkForWin();
-            if (hasWon) {
-                this.gameOver('win');
-            }
-        } else {
-            keyButton.classList.add('wrong');
-            this.removeLife();
-        }    
+        if (event.target.tagName === 'BUTTON') {
+            const keyButton = event.target;
+            const selectedLetter = keyButton.textContent;
+            const isInPhrase = this.activePhrase.checkLetter(selectedLetter);
+    
+            keyButton.disabled = true;
+    
+            if (isInPhrase) {
+                keyButton.classList.add('chosen');
+                this.activePhrase.showMatchedLetter(selectedLetter);
+    
+                const hasWon = this.checkForWin();
+                if (hasWon) {
+                    this.gameOver('win');
+                }
+            } else {
+                keyButton.classList.add('wrong');
+                this.removeLife();
+            }  
+        }  
     }
 
     /**
@@ -106,7 +109,7 @@ class Game {
     gameOver(outcome) {
         const overlayDiv = document.querySelector('#overlay');
         const messageH1 = overlayDiv.children[1];
-        
+
         overlayDiv.style.display = 'block';
         
         if (outcome === 'win') {
