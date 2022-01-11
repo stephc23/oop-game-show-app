@@ -28,15 +28,10 @@ class Phrase {
     /**
      * Checks if the letter selected by the player is in the phrase.
      * @param {string} selectedLetter - The letter selected by the player.
-     * @returns {boolean} True if the selected letter matches a letter in the phrase; false if it matches no letters.
+     * @returns {boolean} True if the phrase includes the selected letter; false if it does not.
      */
     checkLetter(selectedLetter) {
-        for (const char of this.phrase) {
-            if (char === selectedLetter) {
-                return true;
-            } 
-        }
-        return false;
+        return this.phrase.includes(selectedLetter);
     }
 
     /**

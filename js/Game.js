@@ -29,7 +29,7 @@ class Game {
      * @returns {object} The random Phrase object.
      */
     getRandomPhrase() {
-        const randomIndex = Math.floor(Math.random() * 5);
+        const randomIndex = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[randomIndex];
     }
 
@@ -90,8 +90,8 @@ class Game {
 
         for (const li of heartLis) {
             const img = li.firstElementChild;
-            if (img.src === 'file:///Users/stephaniechang/Documents/code/oop-game-show-app/images/liveHeart.png') {
-                img.src = 'images/lostHeart.png';
+            if (img.getAttribute('src') === 'images/liveHeart.png') {
+                img.setAttribute('src', 'images/lostHeart.png');
                 break;
             }
         }
@@ -148,8 +148,8 @@ class Game {
 
         for (const li of heartLis) {
             const img = li.firstElementChild;
-            if (img.src === 'file:///Users/stephaniechang/Documents/code/oop-game-show-app/images/lostHeart.png') {
-                img.src = 'images/liveHeart.png';
+            if (img.getAttribute('src') === 'images/lostHeart.png') {
+                img.setAttribute('src', 'images/liveHeart.png');
             }
         }
     }
